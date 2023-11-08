@@ -9,7 +9,8 @@
 
     <meta charset="utf-8" />
     <style>
-      html, body {
+      html,
+      body {
         width: 100vw;
         height: 100vh;
         padding: 0;
@@ -22,14 +23,45 @@
         background-color: #6e87c4;
       }
 
-      canvas {
-        display: block;
+      .image-grid {
+        --gap: 16px;
+        --num-cols: 3;
+        --row-height: 300px;
+
+        box-sizing: border-box;
+        padding: var(--gap);
+
+        display: grid;
+        grid-template-columns: repeat(var(--num-cols), 1fr);
+        grid-auto-rows: var(--row-height);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      #image {
+        width: 300px;
+        height: 300px;
+        cursor: pointer; /* Add a pointer cursor to indicate clickability */
       }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
-    <script src="sketch.js"></script>
   </head>
   <body>
-    <main></main>
+    <main>
+      <div class="image-grid">
+        <img id="cookieClose1Img" src="img/cookie_close_1.png" alt="cookies" />
+        <img id="cookieClose2Img" src="img/cookie_close_2.png" alt="cookies" />
+        <img id="cookieClose3Img" src="img/cookie_close_3.png" alt="cookies" />
+        <img id="cookieClose4Img" src="img/cookie_close_4.png" alt="cookies" />
+        <img id="cookieClose5Img" src="img/cookie_close_5.png" alt="cookies" />
+        <img id="cookieClose6Img" src="img/cookie_close_6.png" alt="cookies" />
+        <!-- <audio id="audio2" controls>
+          <source src="img/sounds/cumble2.mp3" type="audio2/mpeg" />
+        </audio> -->
+      </div>
+    </main>
+    <script src="script.js"></script>
   </body>
 </html>

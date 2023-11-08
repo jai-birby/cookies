@@ -12,12 +12,18 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  let row = 80;
+  createCookies();
+}
+
+function createCookies() {
+  let rows = 80;
+  let columns = 100;
   for (let c = 0; c < cookies; c++) {
-    if (c % 3 == 0 && c != 0) row += 300;
+    if (c % 3 == 0 && c != 0) rows += 300;
+    if (((c + 1) * 120) % 2 == 1 && c != 1) columns += 80;
     new Cookie(
-      (c + 1) * 120,
-      row,
+      columns,
+      rows,
       cookies_close[c],
       cookies_open[c]
     ).displayCloseCookie();
@@ -25,6 +31,8 @@ function setup() {
 }
 
 function draw() {}
+
+const imageSize = 0.16 * windowWidth;
 
 class Cookie {
   constructor(x, y, closeCookie, openCookie) {
@@ -36,8 +44,10 @@ class Cookie {
   }
 
   displayCloseCookie() {
-    image(this.closeCookie, this.x, this.y, 250, 250);
+    image(this.closeCookie, this.x, this.y, imageSize, imageSize);
   }
 
-  displayOpenCookie() {}
+  displayOpenCookie() {
+    image(this.openCookie, this.x, this.y, imageSize, imageSize);
+  }
 }
