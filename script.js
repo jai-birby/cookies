@@ -19,11 +19,11 @@ const newImage1Src = "img/cookie_open_1.png";
 const audio1 = new Audio("sounds/crumble1.mp3");
 
 function clickFunctionality(cookie, newImg, originalImg, audio) {
-  cookie.addEventListener("mousedown", function () {
+  cookie.addEventListener("touchstart", function () {
     cookie.src = newImg;
     audio.play();
   });
-  cookie.addEventListener("mouseup", function () {
+  cookie.addEventListener("touchend", function () {
     cookie.src = originalImg;
     audio.pause();
   });
