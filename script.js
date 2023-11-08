@@ -19,13 +19,15 @@ const newImage1Src = "img/cookie_open_1.png";
 const audio1 = new Audio("sounds/crumble1.mp3");
 
 function clickFunctionality(cookie, newImg, originalImg, audio) {
-  cookie.addEventListener("pointerdown", function () {
+  cookie.addEventListener("pointerdown", function (e) {
     cookie.src = newImg;
     audio.play();
+    e.preventDefault();
   });
-  cookie.addEventListener("pointerup", function () {
+  cookie.addEventListener("pointerup", function (e) {
     cookie.src = originalImg;
     audio.pause();
+    e.preventDefault();
   });
 }
 
